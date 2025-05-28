@@ -1,0 +1,19 @@
+<head>
+  <style>
+    .warnai-teks {
+      background-color: pink;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="warnai-teks">Ini adalah teks yang berwarna hitam di background kuning.</p>
+</body>
+
+ <style>
+    .warnai-teks-1 {
+      background-color: pink;
+      color: white;
+    }
+  </style>
