@@ -6,97 +6,100 @@
     <title>Ulang tahun anti</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-       rel="stylesheet"
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <style>
+      .warnai-teks {
+        background-color: white;
+        color: pink;
+      }
+      .warnai-teks-1 {
+        background-color: pink;
+        color: black;
+      }
+      body {
+        overflow-x: hidden; /* Mencegah scroll horizontal */
+      }
+    </style>
   </head>
-  <body
-     id="image-container">
-    <div id="image" style="background: url(images/iki-.jpg) no-repeat; width: 150%; height: 1000px; background-size: 100%;
-    "
-     class="flex justify-center h-screen items-center"
-     >
-    <audio autoplay loop>
-       <source src="audio/Rizkyfebian - Selamat Ulang tahun (Lyrics).mp3" type="audio/mpeg">
-     </audio>
-  >
+  <body id="image-container" class="min-h-screen">
     <div
-      class="bg-white border px-10 py-8 border-4 border-gray-300 shadow-lg shadow-blue-300 rounded-xl text-center animate__animated animate__backInDown m-8 w-80"
-      id="kartu"
+      id="image"
+      style="background: url(images/iki-2.jpg) no-repeat center; width: 100vw; height: 100vh; background-size: cover;"
+      class="flex justify-center items-center"
     >
-       <h1 class="text-3xl warnai-teks">Happy Birthday</h1>
-      <h1
-        class="text-4xl warnai-teks font-bold animate__animated animate__pulse animate__infinite"
-    >
-      
-        Anti slebew
-    
-      </h1>
-      <button
-        class="p-2 background-color: warnai-teks-1 font-semiblod mt-5 hover: transition ease-in w-full animate__animated animate__delay-1s animate__tada rounded-xl"
-        onclick="ubahKartu()"
+      <audio id="bg-music" loop>
+        <source src="audio/Rizkyfebian - Selamat Ulang tahun (Lyrics).mp3" type="audio/mpeg">
+      </audio>
+
+      <div
+        class="bg-white border px-4 py-8 border-4 border-gray-300 shadow-lg shadow-blue-300 rounded-xl text-center animate__animated animate__backInDown m-4 w-full max-w-sm"
+        id="kartu"
       >
-        Klik didiyeu yeuh!!!
-      </button>
+        <h1 class="text-2xl md:text-3xl warnai-teks">Happy Birthday</h1>
+        <h1
+          class="text-3xl md:text-4xl warnai-teks font-bold animate__animated animate__pulse animate__infinite"
+        >
+          Anti slebew
+        </h1>
+        <button
+          class="p-2 warnai-teks-1 font-semibold mt-5 hover:transition ease-in w-full animate__animated animate__delay-1s animate__tada rounded-xl"
+          onclick="ubahKartu()"
+        >
+          Klik didiyeu yeuh!!!
+        </button>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
     <script>
+      // Confetti effect
       confetti({
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
       });
-      let kartu = document.getElementById("kartu");
-      function ubahKartu() {
-        kartu.innerHTML = `    <h1 class="font-semibold text-wrap animate__animated animate__zoomIn ">
-      Selamat ulang tahun, dak! mudah mudahan tahun ini makin banyak kebahagiaan,
-      rezeki na makin lancar, dan impian mu menjadi kenyataan. Semoga sehat terus, semoga sukses,
-      dan makan nasi one day three kali! 🎉🎂
-    </h1>
-   <h2 class="background-color: warnai-teks font-bold mt-3 warnai-text animate__animated animate__fadeIn">
-      - Ky -
-     </h2>
-    <button
-      class="p-2 background-color: warnai-teks-1 mt-5 hover: transition ease-in w-full animate__animated animate__delay-1s animate__tada rounded-xl"
-    
-      onclick="refresh()"
-    >
-      Tutup
-    </button>
-    `;
+
+      // Musik autoplay setelah klik pertama
+      const audio = document.getElementById('bg-music');
+      let hasInteracted = false;
+
+      function startMusic() {
+        if (!hasInteracted) {
+          audio.play().catch(e => console.log('Autoplay blocked, waiting for user interaction'));
+          hasInteracted = true;
+        }
       }
 
-      
-      
+      // Deteksi klik pertama di halaman
+      document.addEventListener('click', startMusic);
+
+      // Fungsi ubah kartu
+      let kartu = document.getElementById("kartu");
+      function ubahKartu() {
+        kartu.innerHTML = `
+          <h1 class="font-semibold text-wrap animate__animated animate__zoomIn px-2">
+            Selamat ulang tahun, dak! mudah mudahan tahun ini makin banyak kebahagiaan,
+            rezeki na makin lancar, dan impian mu menjadi kenyataan. Semoga sehat terus, semoga sukses,
+            dan makan nasi one day three kali! 🎉🎂
+          </h1>
+          <h2 class="warnai-teks font-bold mt-3 warnai-text animate__animated animate__fadeIn">
+            - Ky -
+          </h2>
+          <button
+            class="p-2 warnai-teks-1 mt-5 hover:transition ease-in w-full animate__animated animate__delay-1s animate__tada rounded-xl"
+            onclick="refresh()"
+          >
+            Tutup
+          </button>
+        `;
+      }
+
+      // Fungsi refresh
       function refresh() {
         location.reload();
       }
- 
     </script>
   </body>
 </html>
-
-
-
-
-
-
- <style>
-    .warnai-teks {
-      background-color: white;
-      color: pink;
-    }
-  </style>
-</body>
-
- <style>
-    .warnai-teks-1 {
-      background-color: pink;
-      color: black;
-    }
-  </style>
-
-
-
-
